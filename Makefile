@@ -18,7 +18,7 @@ LDFLAGS = -L/usr/local/lib/libbind
 LIBRESOLV = -lbind
 endif
 
-all: cbridge hostat finger
+all: cbridge hostat finger timesr
 
 OBJS = cbridge.o contacts.o usockets.o chtls.o chudp.o debug.o chether.o dns.o chip.o ncp.o pkqueue.o
 
@@ -65,6 +65,9 @@ hostat: hostat.c cbridge-chaos.h
 	$(CC) $(CFLAGS) -o $@ $<
 
 finger: finger.c cbridge-chaos.h
+	$(CC) $(CFLAGS) -o $@ $<
+
+timesr: timesr.c cbridge-chaos.h
 	$(CC) $(CFLAGS) -o $@ $<
 
 clean:
